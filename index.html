@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="user">
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<html>
+<head>
+	<title>Hello Angular</title>
+</head>
+<body>
+	
+	<div ng-controller="formValidationController"  >
+		<form name="userForm">
+			<fieldset>
+				<label for="userName">User Name </label>
+				<input type="text" id="userName" ng-model="user.name" required placeholder="Enter Full Name Here"/>
+				</br>
+				</br>
+				<label for="userEmail">Email </label>
+				<input type="email" id="userEmail"  ng-model="user.email" placeholder="Enter email address here"/>
+				</br>
+				</br>
+				<label for="userBirthday">Date Of Birth </label>
+				<input type="text"  id="userBirthday" required  ng-pattern="/\d\d\/\d\d/\d\d\d\d/"  ng-model="user.dob" placeholder="Enter Date of Birth here"/>
+				</br>
+				</br>
+				<input type="submit" value="Save" ng-disabled="userForm.$invalid" ng-click="saveUser(user,userForm)">
+				</div>
+			</fieldset>
+		</form>
+	</div>	
+	<hr>
+	<h2>Caching Demo</h2>
+	<div ng-controller="userCacheController">
+		Key: <input type="text" ng-model="key"/><br>
+		Value: <input type="text" ng-model="value"/><br>
+		<button type="buttton" ng-click="addToCache(key,value)">Add To Cache</button>
+		<br>
+		<br>
+		<br>
+	 	Enter key to Read Value form catch<br><input type="text" ng-model="keyToRead"/>
+	 	<br>
+	 	<h3>Value From catch from key({{keyToRead}}) is : {{readFromCatch(keyToRead)}}</h3>
+	 	<h3>Cache current status: {{getCacheStatus()}}</h3>
+	</div>
+	<h2>Create Element From String Using Compile Service</h2>
+	<div ng-controller="compileStringControlller">
+	<div id="comileExmapleMainDiv">
+		
+		</div>
+		Text: <input type="text" ng-model="name"/><br>
+		Enter Markup String: <input type="text" ng-model="markup"/><br>
+		<button type="buttton" ng-click="appendDivToElement(markup)">Add Markup</button>
+		
+	</div>
+	
+	
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js" ></script>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js" ></script>
+	<script src="app.js" ></script>
+	<script src="cacheController.js" ></script>
+	<script src="validationController.js" ></script>
+	<script src="compileStringToMarkupController.js" ></script>
+</body>
+</Html>
